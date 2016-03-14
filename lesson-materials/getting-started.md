@@ -2,7 +2,8 @@
 
 1600-1730, Monday 14 March 2016
 _____
-### Installation (to be completed before the session)
+### Installation
+The previously recorded #mashcat webinar on downloading and installing OpenRefine is a good starting point, and is available from [https://summit.uwaterloo.ca/p389l6kkluv/](https://summit.uwaterloo.ca/p389l6kkluv/). If you prefer text to video, then instructions are also given below.
 
 ####Downloading OpenRefine
 You can download OpenRefine from http://openrefine.org/download.html. There are two versions you can use for this lesson:
