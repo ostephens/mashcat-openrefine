@@ -1,13 +1,6 @@
-#Library Carpentry Week Four: OpenRefine
+#(Meta)data tools: Working with OpenRefine
 
-1730-2030, Monday 30 November, City University London
-
-_____
-##Lesson Plan
-
-###Pre-requisites
-This lesson will include the use of regular expressions which were covered in '[Week One: Basics](https://github.com/LibraryCarpentry/week-one-library-carpentry)'. However, there are no pre-requisites in terms of skills or knowledge required to complete this lesson.
-
+1600-1730, Monday 14 March 2016
 _____
 ### Installation (to be completed before the session)
 
