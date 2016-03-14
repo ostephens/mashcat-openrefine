@@ -34,20 +34,8 @@ If you encounter problems installing or running OpenRefine, a good source of sup
 
 If you are installing OpenRefine on Windows, you may want to check the thread on [Installing OpenRefine on Windows 7](https://groups.google.com/forum/?fromgroups#!searchin/openrefine/64-bit%7Csort:date/openrefine/vUzqJqJ-sAA/Tb2Om9wvaqgJ)
 
-_____
-### Data collection
-
-Conducted as attendees enter the room
-
-Thinking about this session on OpenRefine, please rate your skill level. How much would you say that you know about OpenRefine:
-
-* a) Nothing
-* b) A Little
-* c) Lots
-* d) Lots and Lots
-
 ______
-## Hour One
+## Part one
 * Slides: Introduction to OpenRefine
 * [Basic OpenRefine functions I](Basic-OpenRefine-functions-I.md)
     * Getting data into OpenRefine
@@ -59,7 +47,7 @@ ______
     * Clustering
 
 ______
-## Hour Two
+## Part two
 * [Basic OpenRefine functions II](Basic-OpenRefine-functions-II.md)
     * Transforming Data
     * Undo and Redo
@@ -67,19 +55,12 @@ ______
     * Data Types
 
 ______
-### Hour Three
+### Part three
 * [Advanced OpenRefine functions](Advanced-OpenRefine-functions.md)
   * Looking up data from a URL
   * Reconciliation services
   * Extensions
   * Looking up data from other OpenRefine projects
-* Applications of OpenRefine in your own work
-    * Working in a group identify one or more potential uses of OpenRefine in your work (5 minutes)
-    * Develop a list of questions you have about the use of OpenRefine in these scenarios (5 minutes)
-    * Add questions as [Issues on the Github Repository](https://github.com/LibraryCarpentry/week-four-library-carpentry/issues)
-    * {Trainer}: Comment verbally on questions and show relevant OpenRefine functionality if time allows 
-    * {Trainer}: Set take-away for participants to add to the issues list and comment on the issues already posted
-
 ______
 ### Going further
 * [Getting started with OpenRefine by Thomas Padilla](http://thomaspadilla.org/dataprep/)
