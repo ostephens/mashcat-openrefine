@@ -55,7 +55,67 @@ Reconciliation services allow you to lookup terms from your data in OpenRefine a
 
 Reconciliation services can be more sophisticated and often quicker than using the method described above to retrieve data from a URL. However, to use the ‘Reconciliation’ function in OpenRefine requires the external resource to support the necessary service for OpenRefine to work with, which means unless the service you wish to use supports such a service you cannot use the ‘Reconciliation’ approach.
 
+There are a few services where you can find an OpenRefine Reconciliation option available. For example WikiData has a (fledgling) reconciliation service at [https://tools.wmflabs.org/wikidata-reconcile/](https://tools.wmflabs.org/wikidata-reconcile/).
+
+In other cases people have built reconciliation applications for a specific service which you can download and run yourself. These vary in how they work, and what it takes to run them locally. For example there are multiple reconciliation applications for VIAF. Even for the same service (e.g. VIAF) different reconciliation applications (written by different people)  can work in different ways and potentially give different results - so caveat emptor!
+
+One of the most common ways of using the reconciliation option in OpenRefine is with an extension (see below for more on extensions to OpenRefine) can use linked data sources for reconciliation. The extension is called "RDF Refine" and can be downloaded from [http://refine.deri.ie](http://refine.deri.ie).
+
+There also exist extensions to do reconciliation against local data such as csv files (see [http://okfnlabs.org/reconcile-csv/](http://okfnlabs.org/reconcile-csv/)) and maintained lists of values (see [http://okfnlabs.org/projects/nomenklatura/index.html](http://okfnlabs.org/projects/nomenklatura/index.html)).
+
 For more information on using Reconciliation services see [https://github.com/OpenRefine/OpenRefine/wiki/Reconciliation-Service-API](https://github.com/OpenRefine/OpenRefine/wiki/Reconciliation-Service-API)
+
+###Exercise 12: Reconcile Publisher names with VIAF IDs
+In this exercise you are going to use the VIAF Reconciliation service written by [Jeff Chiu](https://twitter.com/absolutelyjeff). Jeff offers two ways of using the reconciliation service - either via a public service he runs at [http://refine.codefork.com/](http://refine.codefork.com/), or by installing and running the service locally using the instructions at [https://github.com/codeforkjeff/refine_viaf](https://github.com/codeforkjeff/refine_viaf).
+
+If you are going to do a lot of reconciliation, please install and run your own local reconciliation service - the instructions at [https://github.com/codeforkjeff/refine_viaf](https://github.com/codeforkjeff/refine_viaf) make this reasonably straightforward.
+
+Once you have chosen which service you are going to use:
+* In the Publisher column use the dropdown menu to choose 'Reconcile->Start Reconciling'
+* If this is the first time you've used this particular reconciliation service, you'll need to add the details of the service now
+	* Click 'Add Standard Service...' and in the dialogue that appears enter:
+		* "http://refine.codefork.com/reconcile/viaf" for Jeff's public service
+		* "http://localhost:8080/reconcile/viaf" if you are running the service locally
+* You should now see a heading in the list on the left hand side of the Reconciliation dialogue called "VIAF Reconciliation Service"
+* Click on this to choose to use this reconciliation service
+* In the middle box in the reconciliation dialogue you may get asked what type of 'entity' you want to reconcile to - that is, what type of thing are you looking for. The list will vary depending on what reconciliation service you are using.
+	* In this case choose "Corporate Name" (it seems like the VIAF Reconciliation Service is slightly intelligent about this and will only offer options that are relevant)
+* In the box on the righthand side of the reconciliation dialogue you can choose if other columns are used to help the reconciliation service make a match - however it is sometimes hard to tell what use (if any) the reconciliation service makes of these additional columns
+* At the bottom of the reconciliation dialogue there is the option to "Auto-match candidates with high confidence". This can be a time saver, but in this case you are going to uncheck it, so you can see the results before a match is made
+* Now click 'Start Reconciling'
+
+Reconciliation is an operation that can take a little time if you have many values to look up. However, in this case there are only 6 publishers to check, so it should work quite quickly.
+
+Once the reconciliation has completed two Facets should be created automatically:
+* Publisher: Judgement
+* Publisher: best candidate's score
+
+These are two of several specific reconciliation facets and actions that you can get from the 'Reconcile' menu (from the column drop down menu).
+
+* Close the 'Publisher: best candidate's score' facet, but leave the 'Publisher: Judgement' facet open
+
+If you look at the Publisher column, you should see some cells have found one or more matches - the potential matches are show in a list in each cell. Next to each potential match there is a 'tick' and a 'double tick'. To accept a reconciliation match you can use the 'tick' options in cells. The 'tick' accepts the match for the single cell, the 'double tick' accepts the match for all identical cells.
+
+* Create a text facet on the Publisher column
+* Choose 'International Union of Crystallography'
+
+In the Publisher column you should be able to see the various potential matches. Clicking on a match will take you to the VIAF page for that entity.
+
+* Click a 'double tick' in one of the Publisher column cells for the option "International Union of Crystallography"
+* This will accept this as a match for all cells - you should see the other options all disappear
+* Check the 'Publisher: Judgement' facet. This should now show that 858 items are 'matched' (if this does not update, try refreshing the facets)
+
+We could do these one by one, but if we are confident with matches, there is an option to accept all:
+
+* Remove all filters/facets from the project so all rows display
+* In the Publisher column use the dropdown menu to choose 'Reconcile->Actions->Match each cell to its best candidate'
+
+There are two things that reconciliation can do for you. Firstly it gets a standard form of the name or label for the entity. Secondly it gets an ID for the entity - in this case a VIAF id. This is hidden in the default view, but can be extracted:
+
+* In the Publisher column use the dropdown menu to choose 'Edit column->Add column based on this column...'
+* Give the column the name 'VIAF ID'
+* In the GREL expression box type ```cell.recon.match.id```
+* This will create a new column that contains the VIAF ID for the matched entity
 
 ##Extensions
 The functionality in OpenRefine can be enhanced by ‘extensions’ which can be downloaded and installed to add functionality to your OpenRefine installation.
